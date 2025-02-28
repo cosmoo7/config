@@ -1,7 +1,0 @@
-#!/bin/sh
-browser_cmd="thorium-browser"
-search_engine="duckduckgo.com" # preferred search engine 
-[ $XDG_SESSION_TYPE = "wayland" ] && menu='wofi --xoffset=320 --yoffset=300 --dmenu';
-[ $XDG_SESSION_TYPE = "x11" ] && menu="dmenu -l 0";
-url=$($menu)
-[ "$url" ] && $browser_cmd "$search_engine/?q=$url"
