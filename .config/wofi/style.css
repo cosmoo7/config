@@ -1,0 +1,38 @@
+* {
+  font-family: "Fira Code Nerd Font";
+  color: #777;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 0;
+}
+window {
+  box-shadow:
+    3px 0px 5px rgba(19, 22, 24, 0.75) inset,
+    -3px -3px 5px rgba(19, 22, 24, 0.75) inset;
+  background-color: rgba(19, 22, 24, 0.75);
+  border-radius: 12px;
+}
+#inner-box {
+  padding: 10px;
+}
+#input {
+  margin: 0.4em;
+  padding: 5px 4px;
+  font-size: 1.24em;
+  color: #aaa;
+}
+#entry {
+  padding: 3px 4px;
+  font-size: 1.3em;
+  box-shadow: 0px 0px 0px #101010 inset;
+}
+#entry:selected {
+  box-shadow:
+    5px -5px 5px rgba(19, 22, 24, 0.75) inset,
+    -5px 5px 5px rgba(19, 22, 24, 0.75) inset;
+}
+#text:selected {
+  font-weight: 500;
+  color: aqua;
+}

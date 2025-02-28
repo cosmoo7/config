@@ -1,0 +1,2 @@
+alias ls="/usr/bin/ls --color=auto -Ap1sh --group-directories-first"
+alias lss="/usr/bin/ls --color=auto -A --group-directories-first"

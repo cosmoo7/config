@@ -1,0 +1,20 @@
+#!/bin/sh
+base_dir="$HOME/dots";
+_term="alacritty"
+_editor="nvim"
+[ -d $base_dir ] || mkdir -pv $base_dir;
+if [ $XDG_SESSION_TYPE = "wayland" ];then
+    echo ' '>$XDG_CACHE_HOME/wofi-dmenu
+	[ $(wofi --version 2>/dev/null) ] && menu="wofi --show dmenu " || printf "Error: wofi not installed";
+fi;
+
+if [ $XDG_SESSION_TYPE = "x11" ];then
+	[ $(dmenu -v 2>/dev/null) ] && menu="dmenu " || printf "Error: dmenu not installed";
+fi;
+
+_files=$(find $base_dir -type f -printf "%A@:F]%P\n" | sort -nr | awk -F: '{print $2;}' | sed '/^[[:space:]]*$/d' | grep -v '\.git');
+_dirs=$(find $base_dir -type d -printf "%A@:D]%P\n" | sort -nr | awk -F: '{print $2;}' | sed '/^[[:space:]]*$/d' | grep '/' | grep -v '\.git');
+conf_list="$_files
+$_dirs";
+
+conf=$(echo "$conf_list" | awk -F] '{print $2;}' | $menu) && $_term -e $_editor $base_dir/$conf;

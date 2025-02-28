@@ -1,0 +1,55 @@
+// -*- mode: jsonc -*-
+{
+  "layer": "top",
+  "position": "top",
+
+  "height": 30,
+  "spacing": 2,
+
+  "modules-left": ["hyprland/workspaces", "hyprland/window"],
+  "modules-center": ["custom/pipewire","clock"],
+  "modules-right": ["cpu", "memory", "temperature", "tray"],
+  "hyprland/workspaces": {
+    "all-outputs": true,
+    "format": "{name}: {icon}",
+    "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "urgent": "",
+      "focused": "",
+      "default": "",
+    },
+  },
+  "tray": {
+    // "icon-size": 21,
+    "spacing": 10,
+  },
+  "clock": {
+    "timezone": "Europe/Warsaw",
+    "tooltip-format": "{:%Y %B}\n{calendar}",
+    "format-alt": "{:%Y-%m-%d}",
+  },
+  "cpu": {
+    "format": "{usage}% ",
+    "tooltip": false,
+  },
+  "memory": {
+    "format": "{}% RAM",
+  },
+  "temperature": {
+    "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
+    "critical-threshold": 80,
+    "format": "{temperatureC}°C {icon}",
+    "format-icons": ["", "", ""],
+  },
+  "custom/pipewire": {
+    "format": "{}% ",
+    "return-type": "",
+    //"interval": 1,
+    "on-scroll-up": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+",
+    "on-scroll-down": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%-",
+    //"exec": "wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2}'"
+    "exec": "wpctl get-volume @DEFAULT_SINK@ | awk '{print $2*100}'"
+},}
