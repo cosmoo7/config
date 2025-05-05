@@ -1,9 +1,19 @@
+@import "mocha.css";
 * {
   font-family: Fira Code Nerd Font;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 500;
   text-shadow: none;
   border: none;
+}
+* {
+  /* reference the color by using @color-name */
+  color: @text;
+}
+
+window#waybar {
+  background-color: shade(@base, 0.9);
+  border: 2px solid alpha(@crust, 0.3);
 }
 
 window {
@@ -12,14 +22,6 @@ window {
     transition-duration: 250ms;
     transition-property: background;
     transition-timing-function: ease-in-out;
-}
-
-window#waybar.solo {
-  background: rgba(30, 32, 41, 0.55);
-    transition-duration: 250ms;
-    transition-property: background;
-    transition-timing-function: ease-in-out;
-    border-bottom: solid 2px rgba(30, 32, 41, 0.2);
 }
 .modules-left{
   /*border-top-right-radius: 20px;*/

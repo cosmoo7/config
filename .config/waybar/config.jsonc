@@ -7,7 +7,7 @@
   "spacing": 2,
 
   "modules-left": ["hyprland/workspaces", "hyprland/window"],
-  "modules-center": ["custom/pipewire","clock"],
+  "modules-center": ["custom/pipewire","clock", "custom/media"],
   "modules-right": ["cpu", "memory", "temperature", "tray"],
   "hyprland/workspaces": {
     "all-outputs": true,
@@ -21,6 +21,9 @@
       "focused": "",
       "default": "",
     },
+  },
+  "hyprland/window": {
+      "max-length": 20
   },
   "tray": {
     // "icon-size": 21,
@@ -48,8 +51,16 @@
     "format": "{}% ",
     "return-type": "",
     //"interval": 1,
-    "on-scroll-up": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+",
-    "on-scroll-down": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%-",
+    "on-scroll-up": "wpctl set-volume -l 1.2 @DEFAULT_AUDIO_SINK@ 2%+",
+    "on-scroll-down": "wpctl set-volume -l 1.2 @DEFAULT_AUDIO_SINK@ 2%-",
     //"exec": "wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2}'"
-    "exec": "wpctl get-volume @DEFAULT_SINK@ | awk '{print $2*100}'"
-},}
+    "exec": "while [ 1 ]; do wpctl get-volume @DEFAULT_SINK@ | awk '{print $2*100}'&& sleep 0.02; done"
+  },
+  "custom/media": {
+    "format": "Playing: {}",
+    "return-type": "",
+    "on-click": "playerctl play-pause",
+    "max-length": 30,
+    "exec": "while [ 1 ]; do playerctl metadata xesam:title; done",
+  },
+}
