@@ -1,38 +1,53 @@
-* {
+@define-color	pink  #f5c2e7;
+@define-color	mauve  #cba6f7;
+@define-color	lavender  #b4befe;
+@define-color	text  #cdd6f4;
+@define-color	base  rgba(30, 30, 46, 0.99);
+@define-color	mantle  #181825;
+@define-color	crust  #11111b;
+
+#window {
+    all:unset;
   font-family: "Fira Code Nerd Font";
-  color: #777;
-  border: none;
-  outline: none;
-  background: transparent;
-  padding: 0;
+  background-color: @base;
+  border-radius: 10px;
 }
-window {
-  box-shadow:
-    3px 0px 5px rgba(19, 22, 24, 0.75) inset,
-    -3px -3px 5px rgba(19, 22, 24, 0.75) inset;
-  background-color: rgba(19, 22, 24, 0.75);
-  border-radius: 12px;
-}
+
 #inner-box {
   padding: 10px;
 }
+
+#outer-box {
+  margin: 3px;
+  padding: 4px;
+  background-color: @base;
+}
+
 #input {
+  border: solid 1px @lavender;
   margin: 0.4em;
-  padding: 5px 4px;
+  padding: 2px 2px;
   font-size: 1.24em;
-  color: #aaa;
+  color: @text;
 }
+
 #entry {
-  padding: 3px 4px;
-  font-size: 1.3em;
-  box-shadow: 0px 0px 0px #101010 inset;
+  padding: 2px 2px;
+  font-size: 1.2em;
+  border: none;
+  color: @lavender;
+  outline: none;
 }
+
 #entry:selected {
-  box-shadow:
-    5px -5px 5px rgba(19, 22, 24, 0.75) inset,
-    -5px 5px 5px rgba(19, 22, 24, 0.75) inset;
+    border: 0.11em solid @lavender;
 }
 #text:selected {
-  font-weight: 500;
-  color: aqua;
+  color: @lavender;
+}
+
+#text {
+  margin: 5px;
+  border: none;
+  color: @text;
 }
