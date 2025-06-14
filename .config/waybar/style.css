@@ -33,7 +33,7 @@ window {
   border-bottom-left-radius: 20px;
 }
 .modules-left, .modules-right {
-    padding: 0 15px;
+    padding: 0 5px;
     background: rgba(30, 32, 41, 0.5);
   /*border: rgba(30, 32, 41, 0.3) solid 2px;*/
   box-shadow: -3px 2px 2px rgba(30, 32, 41, 0.3) inset,
