@@ -1,57 +1,27 @@
 // -*- mode: jsonc -*-
-{
+[
+    {
+  "reload_style_on_change": true,
+  "include": ["$HOME/.config/waybar/modules.jsonc"],
   "layer": "top",
   "position": "top",
+  "id": "top",
+  "spacing": 6,
+  "height": 40,
+  "modules-left": ["hyprland/workspaces"],
+  "modules-right": ["clock", "tray"],
 
-  "height": 30,
-  "spacing": 2,
-
-  "modules-left": ["hyprland/workspaces", "hyprland/window"],
-  "modules-center": ["custom/pipewire","clock", "custom/media"],
-  "modules-right": ["cpu", "memory", "temperature", "tray"],
-  "hyprland/workspaces": {
-    "all-outputs": true,
-    "format": "{name}",
-  },
-  "hyprland/window": {
-      "max-length": 20
-  },
-  "tray": {
-    // "icon-size": 21,
-    "spacing": 10,
-  },
-  "clock": {
-    "timezone": "Europe/Warsaw",
-    "tooltip-format": "{:%Y %B}\n{calendar}",
-    "format-alt": "{:%Y-%m-%d}",
-  },
-  "cpu": {
-    "format": "{usage}% ",
-    "tooltip": false,
-  },
-  "memory": {
-    "format": "{}% RAM",
-  },
-  "temperature": {
-    "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
-    "critical-threshold": 80,
-    "format": "{temperatureC}°C {icon}",
-    "format-icons": ["", "", ""],
-  },
-  "custom/pipewire": {
-    "format": "{}% ",
-    "return-type": "",
-    //"interval": 1,
-    "on-scroll-up": "wpctl set-volume -l 1.2 @DEFAULT_AUDIO_SINK@ 2%+",
-    "on-scroll-down": "wpctl set-volume -l 1.2 @DEFAULT_AUDIO_SINK@ 2%-",
-    //"exec": "wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2}'"
-    "exec": "while [ 1 ]; do wpctl get-volume @DEFAULT_SINK@ | awk '{print $2*100}'&& sleep 0.02; done"
-  },
-  "custom/media": {
-    "format": "Playing: {}",
-    "return-type": "",
-    "on-click": "playerctl play-pause",
-    "max-length": 30,
-    "exec": "while [ 1 ]; do playerctl metadata xesam:title; done",
-  },
-}
+},
+{
+    "layer": "top",
+    "name": "bottom",
+    "position": "bottom",
+    "include": ["$HOME/.config/waybar/modules.jsonc"],
+    "height": 18,
+    "reload_style_on_change": true,
+    "spacing": 2,
+    "modules-left": ["wlr/taskbar"],
+    "modules-center": ["mpris"],
+    "modules-right": ["wireplumber", "pulseaudio/slider"],
+},
+]

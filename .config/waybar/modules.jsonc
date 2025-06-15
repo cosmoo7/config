@@ -1,0 +1,70 @@
+{  
+"wlr/taskbar": {
+    "format": "{icon}",
+    "icon-size": 20,
+    "icon-theme": "Numix-Circle",
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-middle": "close",
+    "ignore-list": [
+       "Alacritty"
+    ],
+    "app_ids-mapping": {
+      "firefoxdeveloperedition": "firefox-developer-edition"
+    },
+    "rewrite": {
+        "Firefox Web Browser": "Firefox",
+        "Foot Server": "Terminal"
+    }
+},
+"hyprland/workspaces": {
+	"format": "{icon}{windows}",
+	"format-icons": {
+        "1": "󰎤",
+        "2": "󰎧",
+        "3": "󰎪",
+        "4": "󰎭",
+        "5": "󰎱",
+        "6": "󰎳",
+        "7": "󰎶",
+        "8": "󰎹",
+        "9": "󰎼",
+        "10": "󰽽",
+	},
+},
+
+  "tray": {
+    // "icon-size": 21,
+    "spacing": 10,
+  },
+  "clock": {
+    "timezone": "Europe/Warsaw",
+    "tooltip-format": "{:%Y %B}\n{calendar}",
+    "format-alt": "{:%Y-%m-%d}",
+  },
+  "cpu": {
+    "format": "{usage}% ",
+    "tooltip": false,
+  },
+  "memory": {
+    "format": "{}% RAM",
+  },
+"wireplumber": {
+	"format": "{volume}%",
+	"format-muted": "  ",
+	"on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
+},
+"mpris": {
+	"format": "{player_icon} {dynamic}",
+	"tooltip-format": "{dynamic}",
+	"format-paused": "{status_icon} <i>{dynamic}</i>",
+    "max-length": 40,
+	"player-icons": {
+		"default": "",
+		"mpv": "🎵"
+	},
+	"status-icons": {
+		"paused": ""
+	},
+}
+}

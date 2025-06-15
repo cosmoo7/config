@@ -1,94 +1,62 @@
 @import "mocha.css";
-* {
-  font-family: Fira Code Nerd Font;
-  font-size: 12px;
-  font-weight: 500;
-  text-shadow: none;
-  border: none;
-}
-* {
-  /* reference the color by using @color-name */
-  color: @text;
-}
 
-window#waybar {
-  background-color: shade(@base, 0.9);
-  border: 2px solid alpha(@crust, 0.3);
+window.top{
+    background: 0;
 }
-
-window {
-  color: rgba(217, 216, 216, 1);
-  background: transparent;
-    transition-duration: 250ms;
-    transition-property: background;
-    transition-timing-function: ease-in-out;
+.top .modules-left{
+    background: alpha(@lavender, 0.38);
+    border-radius: 2px;
+    padding: 0;
+    font-size: 22px;
+    border-bottom-right-radius: 16px;
 }
-.modules-left{
-  /*border-top-right-radius: 20px;*/
-  border-bottom-right-radius: 20px;
+.top .modules-right{
+    padding: 0 12px;
+    background: alpha(@lavender, 0.38);
+    border-radius: 2px;
+    font-size: 22px;
+    border-bottom-left-radius: 16px;
 }
-
-.modules-right{
-  /*border-top-left-radius: 20px;*/
-  border-bottom-left-radius: 20px;
+#clock{
+    font-family: "Adwaita Sans";
+    font-weight: 700;
+    font-size: 115%;
+    margin-right: 15px;
 }
-.modules-left, .modules-right {
-    padding: 0 5px;
-    background: rgba(30, 32, 41, 0.5);
-  /*border: rgba(30, 32, 41, 0.3) solid 2px;*/
-  box-shadow: -3px 2px 2px rgba(30, 32, 41, 0.3) inset,
-  0px -2px 2px rgba(30, 32, 41, 0.3) inset;
+window.bottom#waybar{
+    font-size:18px;
+    background: shade(alpha(@lavender, 0.45), 0.85);
+    border-radius: 2px;
 }
-window#waybar.solo .modules-left, window#waybar.solo .modules-right{
-    background-color: transparent;
-    box-shadow: none;
+#workspaces button{
+    color: alpha(@text, 0.3);
 }
-
-#workspaces button {
-  color: rgba(217, 216, 216, 0.4);
-  background: transparent;
-}
-
 #workspaces button.visible {
-  color: rgba(217, 216, 216, 1);
+    color: #64e8ea;
 }
 
-#workspaces button.focused {
-  border-top: 3px solid #9aedfe;
-  color: #9aedfe;
+#pulseaudio-slider{
+    min-width: 120px;
 }
-#workspaces button.visible:hover {
-  color: rgba(217, 216, 216, 1);
+#taskbar{
+    background: shade(@mauve, 0.35);
+    padding: 0;
+    margin: 3px;
+    border-radius: 12px;
 }
-
-#workspaces button:hover {
-  box-shadow: inherit;
-  text-shadow: inherit;
-  transition-property: background, color;
-  transition-duration: 200ms;
-  transition-timing-function: ease-in-out;
-  color: #a7a7a7;
+#taskbar button{
+    transition-property: background;
+    transition-duration: 150ms;
+    transition-timing-function: linear;
+    border-radius: 12px;
+    background: shade(@mauve, 0.35);
 }
-
-#workspaces button.urgent {
-  color: rgba(238, 46, 36, 1);
+#taskbar button.active{
+    transition-timing-function: linear;
+    transition-duration: 150ms;
+    transition-delay: 150ms;
+    background: shade(@mauve, 0.85);
 }
-
-#clock {
-  font-family: "Monaspace Argon";
-  padding: 0 15px;
-  color: white;
-  background: rgba(30, 32, 41, 0.5);
-  font-size: 150%;
-  font-weight: 800;
-  border-radius: 0 0 12px 12px;
-  box-shadow: 4px 4px 3px rgba(30, 32, 41, 0.2) inset, -4px -4px 3px rgba(30, 32, 41, 0.2) inset;
-}
-window#waybar.solo #clock{
-    box-shadow: none;
-    background-color: transparent;
-}
-.modules-right .module{
-    padding: 0 6px;
-    margin: 0 3px;
+.bottom .modules-left{
+    margin-left: 4px;
 }
