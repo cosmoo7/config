@@ -55,10 +55,9 @@
 	"on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
 },
 "mpris": {
-	"format": "{player_icon} {dynamic}",
-	"tooltip-format": "{dynamic}",
-	"format-paused": "{status_icon} <i>{dynamic}</i>",
-    "max-length": 40,
+	"format": " {player_icon} ",
+	"format-paused": " {status_icon} ",
+    "tooltip-format": "",
 	"player-icons": {
 		"default": "",
 		"mpv": "🎵"
@@ -66,5 +65,38 @@
 	"status-icons": {
 		"paused": ""
 	},
+},
+"custom/artist": {
+    "align" : 0,
+    "format": "Author: {}",
+    "exec": "while [ 1 ]; do playerctl metadata xesam:artist && sleep 0.01; done",
+    // "interval": 5,
+},
+    "align": 0,
+"custom/title": {
+    "format": "{}",
+    "exec": "while [ 1 ]; do playerctl metadata xesam:title && sleep 0.01; done",
+    // "interval": "once",
+},
+"group/media#control":{
+    "orientation": "horizontal",
+    "modules": [
+        "mpris",
+        "group/media#player",
+    ],
+},
+"group/media#player": {
+    "orientation": "vertical",
+    "modules": [
+        "custom/title",
+        "custom/artist"
+    ]
+},
+"group/volume": {
+    "orientation": "horizontal",
+    "modules": [
+        "wireplumber",
+        "pulseaudio/slider",
+    ],
 }
 }

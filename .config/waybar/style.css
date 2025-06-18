@@ -1,5 +1,4 @@
 @import "mocha.css";
-
 window.top{
     background: 0;
 }
@@ -25,8 +24,8 @@ window.top{
 }
 window.bottom#waybar{
     font-size:18px;
-    background: shade(alpha(@lavender, 0.45), 0.85);
-    border-radius: 2px;
+    background: shade(alpha(@lavender, 0.32), 0.85);
+    border-radius: 20px;
 }
 #workspaces button{
     color: alpha(@text, 0.3);
@@ -38,25 +37,41 @@ window.bottom#waybar{
 #pulseaudio-slider{
     min-width: 120px;
 }
+#custom-artist{
+    font-size: 55%; 
+}
+#custom-title{
+    font-size: 85%;
+    margin-top: 3px;
+}
+
+#media.control, #taskbar, #volume{
+    background: shade(alpha(@mauve, 0.75), 0.35);
+    margin: 6px 5px 6px 0;
+    padding: 0 18px;
+    border-radius: 20px;
+}
+#volume{
+    margin-right: 8px;
+}
 #taskbar{
-    background: shade(@mauve, 0.35);
+    margin: 6px 3px 6px 8px;
     padding: 0;
-    margin: 3px;
-    border-radius: 12px;
+}
+#media.control{
+    font-size: 90%;
+    padding: 0 18px 0 6px;
+    margin: 6px 10px 6px 10px;
 }
 #taskbar button{
     transition-property: background;
     transition-duration: 150ms;
     transition-timing-function: linear;
     border-radius: 12px;
-    background: shade(@mauve, 0.35);
 }
 #taskbar button.active{
     transition-timing-function: linear;
     transition-duration: 150ms;
     transition-delay: 150ms;
     background: shade(@mauve, 0.85);
-}
-.bottom .modules-left{
-    margin-left: 4px;
 }
