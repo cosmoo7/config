@@ -33,10 +33,34 @@ window.bottom#waybar{
 #workspaces button.visible {
     color: #64e8ea;
 }
-
+#wireplumber{
+    min-width: 50px;
+}
 #pulseaudio-slider{
     min-width: 120px;
+    padding: 0;
 }
+#pulseaudio-slider trough, #pulseaudio-slider highlight{
+    min-height: 16px;
+    border-radius: 16px;
+    background: shade(alpha(@lavender, 0.65), 1);
+    box-shadow: -2px -2px 2px shade(alpha(@lavender, 0.65), 0.7) inset, 2px 2px 2px shade(alpha(@lavender, 0.65), 0.7) inset;
+}
+#pulseaudio-slider trough{
+    background: shade(alpha(@lavender, 0.7), 0.45);
+    border-radius: 50px;
+    box-shadow: -1px -1px 3px @base inset, 1px 1px 3px @base inset;
+}
+#pulseaudio-slider slider{
+    min-height: 20px;
+    min-width: 20px;
+    background: @mauve;
+    box-shadow: -2px -2px 4px @base inset;
+}
+#pulseaudio-slider slider:hover{
+    box-shadow: 2px 2px 5px alpha(@mauve, 0.3), -2px -2px 4px @base inset, -2px -2px 5px alpha(@mauve, 0.3);
+    background: shade(@mauve, 1.1);
+} 
 #custom-artist{
     font-size: 55%; 
 }
@@ -46,6 +70,7 @@ window.bottom#waybar{
 }
 
 #media.control, #taskbar, #volume{
+    box-shadow: 2px 2px 6px alpha(@base, 0.6) inset;
     background: shade(alpha(@mauve, 0.75), 0.35);
     margin: 6px 5px 6px 0;
     padding: 0 18px;
@@ -62,16 +87,29 @@ window.bottom#waybar{
     font-size: 90%;
     padding: 0 18px 0 6px;
     margin: 6px 10px 6px 10px;
+    transition-timing-function: ease-in-out;
+    transition-property: background, box-shadow;
+    transition-duration: 275ms;
+}
+#media.control:hover{
+    transition-timing-function: ease-in-out;
+    transition-property: background, box-shadow, color;
+    transition-duration: 500ms;
+    box-shadow: 2px 2px 6px @sky inset;
+    background: shade(@mauve, 0.65);
 }
 #taskbar button{
-    transition-property: background;
-    transition-duration: 150ms;
-    transition-timing-function: linear;
-    border-radius: 12px;
+    transition-property: background, box-shadow;
+    transition-duration: 275ms;
+    transition-timing-function: ease-in-out;
+    box-shadow: none;
+    border-radius: 20px;
 }
-#taskbar button.active{
-    transition-timing-function: linear;
-    transition-duration: 150ms;
+#taskbar button.active{  
+    transition-timing-function: ease-in-out;
+    transition-property: background, box-shadow;
+    transition-duration: 275ms;
     transition-delay: 150ms;
+    box-shadow: 2px 2px 4px @sky inset;
     background: shade(@mauve, 0.85);
 }
