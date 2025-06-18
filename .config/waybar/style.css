@@ -38,7 +38,7 @@ window.bottom#waybar{
 }
 #pulseaudio-slider{
     min-width: 120px;
-    padding: 0;
+    padding-right: 16px;
 }
 #pulseaudio-slider trough, #pulseaudio-slider highlight{
     min-height: 16px;
