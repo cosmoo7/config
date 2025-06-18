@@ -69,12 +69,14 @@
 "custom/artist": {
     "align" : 0,
     "format": "Author: {}",
+    "on-click": "playerctl play-pause",
     "exec": "while [ 1 ]; do playerctl metadata xesam:artist && sleep 0.01; done",
     // "interval": 5,
 },
-    "align": 0,
 "custom/title": {
+    "align": 0,
     "format": "{}",
+    "on-click": "playerctl play-pause",
     "exec": "while [ 1 ]; do playerctl metadata xesam:title && sleep 0.01; done",
     // "interval": "once",
 },
