@@ -6,7 +6,7 @@ window.top{
 .top .modules-left{
     background: alpha(@lavender, 0.38);
     border-radius: 2px;
-    padding: 0;
+    padding-right: 6px;
     font-size: 22px;
     border-bottom-right-radius: 16px;
 }
