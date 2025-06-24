@@ -20,6 +20,9 @@ export PATH="$HOME/.local/scripts:$PATH"
 
 source $HOME/.aliasrc
 
+# Source for eww autocomplete
+source $HOME/.config/eww/autocomplete.sh
+
 function dots_deploy(){
     current=$(pwd)
     dir=$HOME/dots
