@@ -1,0 +1,10 @@
+;; Snippet from https://github.com/FieldofClay/hyprland-workspaces
+(deflisten workspace "hyprland-workspaces `hyprctl monitors -j | jq -r \".[0].name\"`")
+(defwidget workspaces []
+  (eventbox :onscroll "hyprctl dispatch workspace `echo {} | sed 's/up/+/\' | sed 's/down/-/'`1"
+    (box :class "workspaces"
+      (for i in workspace
+        (button
+          :onclick "hyprctl dispatch workspace ${i.id}"
+          :class "${i.class}"
+          "${i.name}")))))

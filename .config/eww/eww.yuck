@@ -1,0 +1,19 @@
+(include "./widgets.yuck")
+(include "./vars.yuck")
+
+
+(defwindow workspaceBar
+  :exclusive true
+  :windowtype "dock"
+  :monitor 0
+  :focusable false
+  :stacking "bg"
+  :geometry (geometry
+              :anchor "top center"
+              :width "25%"
+              :height "30px"
+              )
+  (box
+    (workspaces))
+  )
+
