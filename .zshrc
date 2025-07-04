@@ -3,6 +3,16 @@ HISTFILE=$HOME/.histfile
 HISTSIZE=1000000
 SAVEHIST=1000000
 
+# znap setup
+[[ -r ~/.znap/znap/znap.zsh ]] ||
+    git clone --depth 1 -- \
+        https://github.com/marlonrichert/zsh-snap.git ~/.znap/znap
+source ~/.znap/znap/znap.zsh
+
+# znap plugins
+znap source marlonrichert/zsh-autocomplete
+znap source zsh-users/zsh-autosuggestions
+
 # Setup
 setopt autocd extendedglob nomatch notify
 unsetopt beep
@@ -11,7 +21,7 @@ zstyle :compinstall filename '$HOME/.zshrc'
 autoload -Uz compinit
 compinit
 
-PS1="%~ > "
+prompt="%~ > "
 # Bun stuff
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 export BUN_INSTALL="$HOME/.bun"
@@ -23,7 +33,7 @@ source $HOME/.aliasrc
 # Source for eww autocomplete
 source $HOME/.config/eww/autocomplete.sh
 
-function dots_deploy(){
+znap function dots_deploy(){
     current=$(pwd)
     dir=$HOME/dots
     [ -d !$dir ] && mkdir -pv $dir

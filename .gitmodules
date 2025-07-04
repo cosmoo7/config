@@ -1,3 +1,6 @@
 [submodule ".local/scripts"]
 	path = .local/scripts
 	url = https://github.com/cosmoo7/scripts
+[submodule ".znap/znap"]
+	path = .znap/znap
+	url = https://github.com/marlonrichert/zsh-snap
