@@ -44,6 +44,8 @@ require("lazy").setup({
     {'VonHeikemen/lsp-zero.nvim'},
     {'ThePrimeagen/vim-be-good'},
     {'elkowar/yuck.vim'},
+    {'mhartington/formatter.nvim'},
+    {'fsouza/prettierd'},
     {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' }
