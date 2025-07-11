@@ -1,0 +1,2 @@
+(deflisten title `sh $XDG_CONFIG_HOME/eww/scripts/getTitle.sh`)
+(deflisten artUrl `while true; do cat $XDG_CONFIG_HOME/eww/thumb; sleep 1; done`)

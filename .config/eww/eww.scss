@@ -1,0 +1,63 @@
+$mainBg: rgba(164, 161, 216, 0.4);
+$mainText: rgb(205, 214, 224);
+$mainAccent: rgb(180, 190, 254); // Lavender
+$radius: 500px;
+.workspaceBar{
+  background-color: transparent;
+  box-shadow: 2px 2px 3px black inset;
+  border: solid 2px shade($mainBg, 1);
+  border-radius: $radius;
+
+// Workspace buttons
+  button{
+    box-shadow: 0 0 0 $mainAccent inset;
+    transition-delay: 250ms;
+    transition-property: box-shadow, color;
+    transition-timing-function: ease-out;
+    transition-duration: 250ms;
+    color: shade($mainText, 0.8);
+    background-color: $mainBg;
+    border-radius: 0;
+    &:last-child{
+      border-radius: 0 $radius $radius 0;
+      &:first-child{
+        transition: none;
+        border-radius: $radius;
+      }
+    }
+    &:first-child{
+      border-radius: $radius 0 0 $radius;
+    }
+    &.workspace-active{
+      color: shade($mainText, 2);
+      transition: 0;
+      box-shadow: 0 -3px 0 $mainAccent inset;
+      transition-property: box-shadow;
+        transition-timing-function: ease-out;
+        transition-duration: 400ms;
+    }
+    &:hover{
+      box-shadow: 0 -60px 0 shade($mainAccent, 1.05) inset;
+      transition-property: box-shadow, color;
+      transition-timing-function: ease-out;
+      transition-duration: 400ms;
+      transition-delay: 0;
+      color: shade($mainText, 0.3);
+    }
+  }
+}
+.mediaBar{
+  min-width: 200px;
+  scale{
+
+
+    trough{
+
+    }
+
+
+    highlight{
+
+    }
+  }
+}

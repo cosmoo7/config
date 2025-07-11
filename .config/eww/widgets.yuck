@@ -1,4 +1,6 @@
 ;; Snippet from https://github.com/FieldofClay/hyprland-workspaces
+(include "./vars.yuck")
+
 (deflisten workspace "hyprland-workspaces `hyprctl monitors -j | jq -r \".[0].name\"`")
 (defwidget workspaces []
   (eventbox :onscroll "hyprctl dispatch workspace `echo {} | sed 's/up/+/\' | sed 's/down/-/'`1"
@@ -8,3 +10,34 @@
           :onclick "hyprctl dispatch workspace ${i.id}"
           :class "${i.class}"
           "${i.name}")))))
+
+(deflisten mediaPlaying "playerctl --follow status")
+
+(defwidget volume-slider []
+  (box :orientation "v"
+    (scale :onchange "wpctl set-volume @DEFAULT_SINK@ {}%"
+           :min 0
+           :value-pos "right"
+           :max 101
+           :value "wpctl get-volume @DEFAULT_SINK@ | awk '{print $2}'"
+           :active true)))
+(defwidget mediaAlbum []
+  (box
+    (image :path artUrl)))
+(defwidget mediaControls []
+  (box :orientation "h"
+    (button :onclick "playerctl previous"
+      "󰙣")
+    (button :onclick "playerctl play-pause"
+      {mediaPlaying == "Playing" ? "" : ""})
+    (button :onclick "playerctl next"
+      "󰙡")
+    )
+  )
+(defwidget mediaWidget []
+  (box :orientation "v"
+    (mediaAlbum)
+    (label :text title)
+    (mediaControls)
+    )
+  )
