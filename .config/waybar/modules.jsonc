@@ -80,6 +80,11 @@
     "exec": "while [ 1 ]; do playerctl metadata xesam:title && sleep 0.01; done",
     // "interval": "once",
 },
+"custom/space": {
+    "format": "{} free",
+    "exec": "df -h / --output=avail | tail -n1",
+    "interval": 20,
+},
 "group/media#control":{
     "orientation": "horizontal",
     "modules": [
